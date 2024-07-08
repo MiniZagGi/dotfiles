@@ -4,6 +4,6 @@
 alias getip="curl 'https://api64.ipify.org?format=json'"
 alias week='date +%V'
 alias pj='$HOME/Documents/Projects'
-
+alias dot='$HOME/.dotfiles'
 # Created by `pipx` on 2024-04-21 17:42:48
 export PATH="$PATH:/Users/mini/.local/bin"
