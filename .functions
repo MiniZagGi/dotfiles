@@ -4,3 +4,19 @@
 function mkd() {
 	mkdir -p "$@" && cd "$_";
 }
+# Check an IP address on AbuseIPDB.com
+ipcheck() {
+  if [ -z "$1" ]; then
+    echo "Usage: ipcheck <ip-address>"
+    return 1
+  fi
+
+  local ip=$1
+  local api_key=$ABUSEIPDB_API_KEY
+
+  curl -sG https://api.abuseipdb.com/api/v2/check \
+    --data-urlencode "ipAddress=$ip" \
+    --data-urlencode "maxAgeInDays=90" \
+    -H "Key: $api_key" \
+    -H "Accept: application/json" | jq
+}
